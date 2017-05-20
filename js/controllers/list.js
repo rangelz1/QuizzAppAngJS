@@ -11,6 +11,7 @@
 			vm.data = listOfAnsweres;
 			vm.activeAnswere = {};
 			vm.changeActiveAnswere = changeActiveAnswere;
+			vm.search = "list.search";
 
 			function changeActiveAnswere(index){
 				vm.activeAnswere = index;
