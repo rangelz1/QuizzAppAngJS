@@ -18,8 +18,10 @@
 		</h3>
 	</div>
 
-	<div ng-controller="listCtrl">
-		{{}}
+	<div ng-controller="listCtrl as list">
+		<p ng-repeat="question in list.data">
+		{{question.type}}
+		</p>
 	</div>
 
 </div>
