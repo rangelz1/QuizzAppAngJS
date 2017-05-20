@@ -8,29 +8,40 @@
 		function ListController(){
 			var vm = this;
 
-			vm.data = listOfQuestons;
+			vm.data = listOfAnsweres;
+			vm.activeAnswere = {};
+			vm.changeActiveAnswere = changeActiveAnswere;
+
+			function changeActiveAnswere(index){
+				vm.activeAnswere = index;
+			}
+
 		}
 
-		var listOfQuestons = [
+		var listOfAnsweres = [
 			{
-				type: "Question One",
+				type: "Answere One",
 				image_url: "http://lorempixel.com/400/200/",
 				location: "Position One",
+				description: "Answere",
 			},
 			{
-				type: "Question Two",
+				type: "Answere Two",
 				image_url: "http://lorempixel.com/400/200/",
 				location: "Position Two",
+				description: "Answere",
 			},
 			{
-				type: "Question Three",
+				type: "Answere Three",
 				image_url: "http://lorempixel.com/400/200/",
 				location: "Position Three",
+				description: "Answere",
 			},
 			{
-				type: "Question Four",
+				type: "Answere Four",
 				image_url: "http://lorempixel.com/400/200/",
 				location: "Position Four",
+				description: "Answere",
 			}
 		]
 

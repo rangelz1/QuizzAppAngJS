@@ -20,21 +20,49 @@
 
 	<div ng-controller="listCtrl as list">
 		<div class="row">
-			<div class="col-sm-6" ng-repeat="question in list.data">
+			<div class="col-sm-6" ng-repeat="answere in list.data">
 				<div class="well well-sm">
 					<div class="row">
 						<div class="col-md-6">
-							<img ng-src="{{question.image_url}}" class="img-rounded img-responsive">
+							<img ng-src="{{answere.image_url}}" class="img-rounded img-responsive well-image">
 						</div>
 						<div class="col-md-6">
-							<h4>{{question.type}}</h4>
-							<p><strong>Position: </strong>{{question.location}}</p>
-							<button class="btn btn-primary pull-right">Learn More</button>
+							<h4>{{answere.type}}</h4>
+							<p><strong>Position: </strong>{{answere.location}}</p>
+							<p><strong>Description: </strong>{{answere.description}}</p>
+							<button class="btn btn-primary pull-right" data-toggle="modal" data-target="#answere-info" ng-click="list.changeActiveAnswere(answere)">Learn More</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<div class="modal" id="answere-info">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2>{{list.activeAnswere.type}}</h2>
+					</div>
+					<div class="modal-body">
+						<div class="row ">
+							<div class="col-xs-8 col-xs-offset-2">
+								<img ng-src="{{list.activeAnswere.image_url}}" class="img-rounded img-responsive">
+							</div>
+						</div>
+						<div class="row top-buffer">
+							<div class="col-md-6 ">
+								<p><strong>Positions: </strong>{{list.activeAnswere.location}}</p>
+							</div>
+							<div class="col-xs-12 top-buffer">
+								<p><strong>Description: </strong>{{list.activeAnswere.description}}</p>
+								<button class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 </div>
