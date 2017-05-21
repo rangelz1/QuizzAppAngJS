@@ -11,10 +11,16 @@
 			vm.data = listOfAnsweres;
 			vm.activeAnswere = {};
 			vm.changeActiveAnswere = changeActiveAnswere;
-			vm.search = "list.search";
+			vm.activateQuiz = activateQuiz;
+			vm.search = "";
+			vm.quizActive = false;
 
 			function changeActiveAnswere(index){
 				vm.activeAnswere = index;
+			}
+
+			function activateQuiz(){
+				vm.quizActive = true;
 			}
 
 		}

@@ -3,25 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Quizz App</title>
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="icon"  class="fa fa-graduation-cap" aria-hidden="true" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Quiz App</title>
+	<link rel="stylesheet" href="css/style.css">
+	
 </head>
 <body>
 
 <div class="container">
 	<div class="page-header">
-		<h1>Math Quizz</h1>
+		<h1><span class="glyphicon glyphicon-education"></span> Math Quiz</h1>
 		<h3>
 		Learn basic math
 		<strong>Addition</strong>
 		</h3>
 	</div>
 
-	<div ng-controller="listCtrl as list">
+	<div ng-controller="listCtrl as list" ng-hide="list.quizActive">
 	<form class="form-inline well well-sm clearfix">
 		<span class="glyphicon glyphicon-search"></span>
 		<input type="text" placeholder="Search..." class="form-control" ng-model="list.search">
+		<button class="btn btn-warning pull-right" ng-click="list.activateQuiz()"><strong>Start Quiz</strong></button>
 	</form>
 		<div class="row">
 			<div class="col-sm-6" ng-repeat="answere in list.data | filter:list.search">
@@ -67,6 +72,10 @@
 			</div>
 		</div>
 
+	</div><!-- List Controller -->
+
+	<div ng-controller="quizCtrl as quiz">
+		
 	</div>
 
 </div>
@@ -79,5 +88,7 @@
 	<!-- application scripts -->
 	<script src="js/app.js"></script>
 	<script src="js/controllers/list.js"></script>
+	<script src="js/controllers/quiz.js"></script>
+	<script src="js/factories/quizMetrics.js"></script>
 </body>
 </html>
