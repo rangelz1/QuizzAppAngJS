@@ -4,23 +4,26 @@
 		.module("quizzApp")
 		.controller("listCtrl", ListController);
 
+		ListController.$inject = ['quizMetrics'];
 
-		function ListController(){
+
+		function ListController(quizMetrics){
 			var vm = this;
 
+			vm.quizMetrics = quizMetrics;
 			vm.data = listOfAnsweres;
 			vm.activeAnswere = {};
 			vm.changeActiveAnswere = changeActiveAnswere;
 			vm.activateQuiz = activateQuiz;
 			vm.search = "";
-			vm.quizActive = false;
+			
 
 			function changeActiveAnswere(index){
 				vm.activeAnswere = index;
 			}
 
 			function activateQuiz(){
-				vm.quizActive = true;
+				quizMetrics.changeState(true);
 			}
 
 		}
