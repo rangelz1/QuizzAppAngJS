@@ -4,22 +4,22 @@
 		.module("quizzApp")
 		.controller("listCtrl", ListController);
 
-		ListController.$inject = ['quizMetrics'];
+		ListController.$inject = ['quizMetrics', 'DataService'];
 
 
-		function ListController(quizMetrics){
+		function ListController(quizMetrics, DataService){
 			var vm = this;
 
 			vm.quizMetrics = quizMetrics;
-			vm.data = listOfAnsweres;
-			vm.activeAnswere = {};
-			vm.changeActiveAnswere = changeActiveAnswere;
+			vm.data = DataService.answeresData;
+			vm.activeAnswer = {};
+			vm.changeActiveAnswer = changeActiveAnswer;
 			vm.activateQuiz = activateQuiz;
 			vm.search = "";
 			
 
-			function changeActiveAnswere(index){
-				vm.activeAnswere = index;
+			function changeActiveAnswer(index){
+				vm.activeAnswer = index;
 			}
 
 			function activateQuiz(){
@@ -27,32 +27,5 @@
 			}
 
 		}
-
-		var listOfAnsweres = [
-			{
-				type: "Answere One",
-				image_url: "http://lorempixel.com/400/200/",
-				location: "Position One",
-				description: "Answere",
-			},
-			{
-				type: "Answere Two",
-				image_url: "http://lorempixel.com/400/200/",
-				location: "Position Two",
-				description: "Answere",
-			},
-			{
-				type: "Answere Three",
-				image_url: "http://lorempixel.com/400/200/",
-				location: "Position Three",
-				description: "Answere",
-			},
-			{
-				type: "Answere Four",
-				image_url: "http://lorempixel.com/400/200/",
-				location: "Position Four",
-				description: "Answere",
-			}
-		]
 
 })();

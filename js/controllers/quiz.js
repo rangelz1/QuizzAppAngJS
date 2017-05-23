@@ -4,13 +4,23 @@
 		.module("quizzApp")
 		.controller("quizCtrl", QuizController);
 
-		QuizController.$inject = ['quizMetrics'];
+		QuizController.$inject = ['quizMetrics', 'DataService'];
 
-		function QuizController(quizMetrics){
+		function QuizController(quizMetrics, DataService){
 
 			var vm = this;
 
 			vm.quizMetrics = quizMetrics;
+			vm.dataService = DataService;
+			vm.questionAnswered = questionAnswered;
+			vm.activeQuestion = 0;
+
+			function questionAnswered(){
+				
+			}
+
 		}
+
+
 
 })();
