@@ -19,8 +19,9 @@
 
 			var numQuestionsAnswered = 0;
 
-			function setActiveQuestion(){
-				var breakOut = false;
+			function setActiveQuestion(index){
+				if(index === undefined){
+					var breakOut = false;
 				var quizLength = DataService.quizQuestions.length - 1;
 
 				while(!breakOut){
@@ -30,6 +31,10 @@
 						breakOut = true;
 					}
 				}
+			}else{
+				vm.activeQuestion = index;
+			}
+				
 
 			}
 
