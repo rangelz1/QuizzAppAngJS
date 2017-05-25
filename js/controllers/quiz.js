@@ -15,7 +15,10 @@
 			vm.questionAnswered = questionAnswered;
 			vm.setActiveQuestion = setActiveQuestion;
 			vm.selectAnswer = selectAnswer;
+			vm.finaliseAnswers = finaliseAnswers;
 			vm.activeQuestion = 0;
+			vm.error = false;
+			vm.finalise = false;
 
 			var numQuestionsAnswered = 0;
 
@@ -26,6 +29,10 @@
 
 				while(!breakOut){
 					vm.activeQuestion = vm.activeQuestion < quizLength?++vm.activeQuestion:0;
+
+					if(vm.activeQuestion === 0){
+						vm.error = true;
+					}
 
 					if(DataService.quizQuestions[vm.activeQuestion].selected === null){ //this line stops question selection if no more questions
 						breakOut = true;
@@ -46,6 +53,15 @@
 					numQuestionsAnswered++;
 					if(numQuestionsAnswered >= quizLength){
 						//finalise quiz
+						for(var i = 0; i < quizLength; i++){
+							if(DataService.quizQuestions[i].selected === null){
+								setActiveQuestion(i);
+								return;
+							}
+						} 
+						vm.error = false;
+						vm.finalise = true;
+						return;
 					}
 				}
 
@@ -54,6 +70,15 @@
 
 			function selectAnswer(index){
 				DataService.quizQuestions[vm.activeQuestion].selected = index;
+			}
+
+			function finaliseAnswers(){
+				vm.finalise = false;
+				numQuestionsAnswered = 0;
+				vm.activeQuestion = 0;
+				quizMetrics.markQuiz();
+				quizMetrics.changeState("quiz", false);
+				quizMetrics.changeState("results", true);
 			}
 
 		}
