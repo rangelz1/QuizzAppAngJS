@@ -7,13 +7,15 @@
 		function DataFactory(){
 			var dataObj = {
 				answeresData: answeresData,
-				quizQuestions: quizQuestions
+				quizQuestions: quizQuestions,
+				correctAnswers: correctAnswers
 			};
 
 			return dataObj;
 		}
+		var correctAnswers = [1,2,3,0,2,0,3,2,0,3];
 
-var quizQuestions = [
+		var quizQuestions = [
 		{
 			type: "text",
 			text: "a container for a value, like a number we might use in a sum, or a string that we might use as part of a sentence.",
