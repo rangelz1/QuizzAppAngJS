@@ -96,6 +96,46 @@
 			selected: null,
 			correct: null
 		},
+		{
+			type: "text",
+			text: "allow you to store a piece of code that does a single task inside a defined block, and then call that code whenever you need it using a single short command — rather than having to type out the same code multiple times.",
+			possibilities: [
+			{
+				answer: "An Operator"
+			},
+			{
+				answer: "An Array"
+			},
+			{
+				answer: "An Object"
+			},
+			{
+				answer: "Functions"
+			},
+			],
+			selected: null,
+			correct: null
+		},
+		{
+			type: "image",
+			text: "allow you to store a piece of code that does a single task inside a defined block, and then call that code whenever you need it using a single short command — rather than having to type out the same code multiple times.",
+			possibilities: [
+			{
+				answer: "http://lorempixel.com/400/200/"
+			},
+			{
+				answer: "http://lorempixel.com/400/200/"
+			},
+			{
+				answer: "http://lorempixel.com/400/200/"
+			},
+			{
+				answer: "http://lorempixel.com/400/200/"
+			},
+			],
+			selected: null,
+			correct: null
+		},
 ];
 
 var answeresData = [
